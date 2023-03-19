@@ -77,7 +77,7 @@ def train_model(datasets,model_checkpoint = "bert-large-uncased-whole-word-maski
     tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
     train,evaluate,test = np.split(datasets.sample(frac=1, random_state=42), [int(.6*len(datasets)),int(.8*len(datasets))])
     #datasets = datasets.applymap(str)
-    test.to_excel(os.path.join(sys.path[0],"qa_test.xlsx"))
+    test.to_excel(os.path.join(sys.path[0],"qa.xlsx"))
     #question_train=train['question'].values.tolist()
     #context_train=train['context'].values.tolist()
     train['answer']=train.answer.apply(lambda x: ast.literal_eval(str(x)))
